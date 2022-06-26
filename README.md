@@ -3,4 +3,4 @@ a repository where i mix mathematics and programming (i hate maths sometimes but
 
 **NOTE:**
 
-Gauss Jordan code was not a success :( yet I may finish it later. The rest of the codes are functional and succesful
+Gauss Jordan codes were unsuccesful :( yet I may finish them later. The rest of the codes are functional.
