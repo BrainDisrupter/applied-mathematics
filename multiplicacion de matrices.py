@@ -17,7 +17,13 @@ while (opc == 1):
             for i in range(filasA):
                 lista = []
                 for j in range(colA):
-                    valor = float(input(f"introduce datos dentro de la celda [{i+1}][{j+1}]: "))
+                    while True:
+                        try:
+                            valor = float(input(f"introduce datos dentro de la celda [{i+1}][{j+1}]: "))
+                            break
+                        except ValueError:
+                            print("Introduciste un número no válido.")
+                            continue
                     lista.append(valor)
                 A.append(lista)
             imprimirmatriz(A)
@@ -29,7 +35,13 @@ while (opc == 1):
             for i in range(filasB):
                 lista = []
                 for j in range(colB):
-                    valor = float(input(f"introduce datos dentro de la celda [{i+1}][{j+1}]: "))
+                    while True:
+                        try:
+                            valor = float(input(f"introduce datos dentro de la celda [{i+1}][{j+1}]: "))    
+                            break
+                        except ValueError:
+                            print("Introduciste un número no válido.")
+                            continue
                     lista.append(valor)
                 B.append(lista)
             imprimirmatriz(B)
