@@ -47,6 +47,7 @@ while (opc == 1):
                 sum = sum + (A[i][k])*(B[k][j])
             arreglo.append(sum)
         C.append(arreglo)
+        print("***********************************")
     imprimirmatriz(C)
     try: 
         opc = int(input("¿Deseas realizar otra multiplicación?\n1. Sí 2. No: "))
