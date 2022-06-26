@@ -20,7 +20,7 @@ while (opc == 1):
                     valor = float(input(f"introduce datos dentro de la celda [{i+1}][{j+1}]: "))
                     lista.append(valor)
                 A.append(lista)
-            print(A)
+            imprimirmatriz(A)
             filasB = int(input("Numero de filas de la matriz B: "))
             if (colA != filasB):
                 print("El número de columnas de la matriz A no es igual al de renglones de la matriz B")
@@ -32,7 +32,7 @@ while (opc == 1):
                     valor = float(input(f"introduce datos dentro de la celda [{i+1}][{j+1}]: "))
                     lista.append(valor)
                 B.append(lista)
-            print(B)
+            imprimirmatriz(B)
             False
         except ValueError:
             print("Introduciste un dato no numérico, vuelve a introducir un número")
