@@ -1,4 +1,4 @@
-#Lo hice yo jotos, claudio : P
+#Lo hice yo, claudio : P
 def imprimirmatriz(matriz):
     nomren = len(matriz)
     for x in range (nomren):
