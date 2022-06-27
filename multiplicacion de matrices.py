@@ -10,9 +10,9 @@ while (opc == 1):
     A = []
     B = [] 
     C = []    
-    while True: 
+    while True: #Llenado matrices A y B
 
-        while True: #Pedimos cantidad de filas y renglones
+        while True: #cantidad de filas y renglones
             try:
                 filasA = int(input("Numero de filas de la matriz A: "))
                 colA = int(input("Numero de columnas de la matriz A: "))
@@ -36,7 +36,7 @@ while (opc == 1):
            
         imprimirmatriz(A)
 
-        while True: #Pedimos cantidad de filas y renglones
+        while True: #cantidad de filas y renglones
             try:
                 filasB = int(input("Numero de filas de la matriz B: "))
                 if (colA != filasB):
@@ -67,7 +67,7 @@ while (opc == 1):
             
         ####################################################################
 
-    for i in range(filasA): #Numero de arreglos o filas de la nueva matriz
+    for i in range(filasA): #Algoritmo matemático
         arreglo = []
         for j in range(colB): #Numero de columnas de la nueva matriz
             sum = 0
@@ -79,7 +79,7 @@ while (opc == 1):
     print("***********************************\nMatriz resultado:") 
 
     imprimirmatriz(C)
-
+ 
     try: #Validamos si el usuario desea volver a usar el programa
         opc = int(input("¿Deseas realizar otra multiplicación?\n1. Sí 2. No: "))
         if (opc > 2 or opc < 1):
