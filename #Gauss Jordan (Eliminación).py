@@ -1,6 +1,5 @@
 #Solución de sistemas de ecuaciones lineales por Gauss-Jordan por eliminación
 from decimal import DivisionByZero
-from re import X
 def imprimirmatriz(matriz):
     numren = len(matriz)
     numcol = len(matriz[0])
@@ -16,7 +15,7 @@ while opc==1:
     fil = int(input("Introduce el número de renglones: "))
     col = int(input("Introduce el número de columnas: "))
     if (fil == col-1 or fil == col): #Para que un sistema de ecuaciones lineales sea resuelto, solo puede haber una diferencia maxima de 1 entre los renglones y columnas y únicamente la cant. de renglones puede ser menor.
-        for i in range(fil):
+        for i in range(fil): #Llenado de matriz
             renglon = []
             for j in range(col):
                 while True:    
@@ -28,37 +27,48 @@ while opc==1:
                         continue
                 renglon.append(num)
             A.append(renglon)
-        while True:
-            for i in range(fil):
-                pivote = A[i][i]
-                for j in range(col):
-                    try:
-                        A[i][j] = A[i][j]/pivote #Dividimos renglon pivote entre su pivote
-                    except ZeroDivisionError or DivisionByZero:
-                            A[i][j] = 0.0
-                print("\nMATRIZ DE REFERENCIA")
-                imprimirmatriz(A)
-                print(f"RENGLÓN PIVOTE: R{i+1}. DIVIDIDO ENTRE {pivote}")
-                for l in range(fil):
-                    if (l != i):
-                        multiplo = A[l][i]
-                        print(f"R{i+1} x {multiplo} - R{l+1}")
-                        for k in range(col):
-                            A[l][k] = A[l][k]-(A[i][k]*multiplo)
-                print("MATRIZ NUEVA")
-                imprimirmatriz(A)
-                print("*****************")
-            if (A[fil-1][col-2]==1): #Si a la izquierda hay un 1 hasta la parte inferior, decimos que tiene solución única.
-                print("\nEste S.E.L tiene solución única.")
-            elif(A[fil-1][col-2]==0 and A[fil-1][col-1]==0): #Si los 2 ultimos valores de la parte inferior son 0, decimos que tiene soluciones infinitas.
-                print("\nEste S.E.L tiene soluciones infinitas.")
-            elif(A[fil-1][col-2]==0 and A[fil-1][col-1]!=0): #Si el último valor del último renglón es diferente de 0, pero el izquierdo es igual a 0, decimos que el S.E.L no tiene solución.
-                print("\nEste S.E.L no tiene solución.")
-            break
+        #for i in range(fil):
+        print("\nMATRIZ INICIAL:")
+        imprimirmatriz(A)
+        print("************************************")
+        if (A[0][0] == 0): #Dado que hubiera un 0 en A1,1 en el primer renglon, lo intercambiamos por uno que tenga un valor diferente de 0 en su primera columna.
+            i=1
+            while i<fil:
+                if (A[i][0]!=0):
+                    A[0],A[i] = A[i],A[0]
+                    break
+                i+=1
+            print(f"INTERCAMBIAMOS RENGLON 1 POR RENGLON {i+1} DEBIDO AL CERO INICIAL")
+            imprimirmatriz(A)
+        for i in range(fil): #Procedimiento Gauss-Jordan (Eliminación)
+            pivote = A[i][i]
+            for j in range(col):
+                try:
+                    A[i][j] = A[i][j]/pivote #Dividimos renglon pivote entre su pivote
+                except ZeroDivisionError or DivisionByZero:
+                    A[i][j] = 0
+            print("\nMATRIZ DE REFERENCIA")
+            imprimirmatriz(A)
+            print(f"RENGLÓN PIVOTE: R{i+1}. DIVIDIDO ENTRE {pivote}")
+            for l in range(fil):
+                if (l != i):
+                    multiplo = A[l][i]
+                    print(f"R{l+1} - R{i+1} x {multiplo} => R{l+1}")
+                    for k in range(col):
+                        A[l][k] = A[l][k]-(A[i][k]*multiplo)
+            print("MATRIZ NUEVA")
+            imprimirmatriz(A)
+            print("*****************\n")
+        if (A[fil-1][col-2]==1): #Si a la izquierda hay un 1 hasta la parte inferior, decimos que tiene solución única.
+            print("\nEste S.E.L tiene solución única.")
+        elif(A[fil-1][col-2]==0 and A[fil-1][col-1]==0): #Si los 2 ultimos valores de la parte inferior son 0, decimos que tiene soluciones infinitas.
+            print("\nEste S.E.L tiene soluciones infinitas.")
+        elif(A[fil-1][col-2]==0 and A[fil-1][col-1]!=0): #Si el último valor del último renglón es diferente de 0, pero el izquierdo es igual a 0, decimos que el S.E.L no tiene solución.
+            print("\nEste S.E.L no tiene solución.")
         print("INCÓGNITAS: ")
-        for i in range(fil):
+        for i in range(fil): #Llenado de vector solución
             vecsolu.append(A[i][fil])
-            print(f"X1: {A[i][fil]}")
+            print(f"X{i+1}: {A[i][fil]}")
         print("VECTOR SOLUCION: ")
         print(vecsolu)
         print("MATRIZ RESUELTA")
