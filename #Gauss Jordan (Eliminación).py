@@ -14,7 +14,7 @@ while opc==1:
     A = []
     fil = int(input("Introduce el número de renglones: "))
     col = int(input("Introduce el número de columnas: "))
-    if (fil == col-1 or fil == col): #Para que un sistema de ecuaciones lineales sea resuelto, solo puede haber una diferencia maxima de 1 entre los renglones y columnas y únicamente la cant. de renglones puede ser menor.
+    if (fil == col-1): #Para que un sistema de ecuaciones lineales sea resuelto, debe haber una diferencia maxima de 1 entre los renglones y columnas y únicamente la cant. de renglones puede ser menor.
         for i in range(fil): #Llenado de matriz
             renglon = []
             for j in range(col):
