@@ -1,4 +1,4 @@
-#Solución de sistemas de ecuaciones lineales por Gauss-Jordan por eliminación
+#Solución de sistemas de ecuaciones lineales por Gauss-Jordan por eliminación.
 from decimal import DivisionByZero
 def imprimirmatriz(matriz):
     numren = len(matriz)
