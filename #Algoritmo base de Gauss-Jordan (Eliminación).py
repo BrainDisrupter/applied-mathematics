@@ -1,4 +1,4 @@
-#Algoritmo principal de solución de sistemas de ecuaciones lineales por Gauss-Jordan por eliminación
+#Algoritmo principal de solución de sistemas de ecuaciones lineales por Gauss-Jordan por eliminación.
 def imprimirmatriz(matriz):
     nomren = len(matriz)
     for x in range (nomren):
