@@ -38,10 +38,10 @@ while opc==1:
         imprimirmatriz(A)
         for l in range(i,recorrido):
             if (l != i):
-                divisor = A[l][i]/A[i][i]*(-1)
-                print(f"R{l+1} - R{i+1} x {divisor} => R{l+1}")
+                multiplo = A[l][i]/A[i][i]*(-1)
+                print(f"R{l+1} - R{i+1} x {multiplo} => R{l+1}")
                 for k in range(i,recorrido):
-                    A[l][k] = A[i][k]*divisor + A[l][k]
+                    A[l][k] = A[i][k]*multiplo + A[l][k]
     sumdet = 1
     for i in range(recorrido):
         sumdet = sumdet*A[i][i]
