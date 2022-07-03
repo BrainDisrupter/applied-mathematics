@@ -1,4 +1,4 @@
-#Determinante de una matriz por eliminación con Gauss-Jordan (fors) (código final)
+#Determinante de una matriz por eliminación con Gauss-Jordan (fors) (código final).
 def imprimirmatriz(matriz):
     numren = len(matriz)
     numcol = len(matriz[0])
