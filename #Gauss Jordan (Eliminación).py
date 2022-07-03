@@ -71,4 +71,4 @@ while opc==1:
     print(vecsolu)
     print("\nMATRIZ RESUELTA")
     imprimirmatriz(A)
-    break
+    opc = int(input("\n¿Deseas resolver otro sistema de ecuaciones lineales? \n1. Sí 2. No"))
