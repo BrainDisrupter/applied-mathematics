@@ -31,7 +31,8 @@ while opc==1:
                 A[0],A[i] = A[i],A[0]
                 break
             i+=1
-        print(f"\nINTERCAMBIAMOS RENGLON 1 POR RENGLON {i+1} DEBIDO AL CERO INICIAL")
+        imprimirmatriz(A)
+        print(f"************************************************\nINTERCAMBIAMOS RENGLON 1 POR RENGLON {i+1} DEBIDO AL CERO INICIAL")
         imprimirmatriz(A)
     for i in range(recorrido): #Procedimiento Gauss-Jordan (Eliminación)
         print("\nMATRIZ DE REFERENCIA")
@@ -49,5 +50,3 @@ while opc==1:
        sumdet = 0.0
     print(f"La determinante es: {sumdet}")
     opc = int(input("\n¿Deseas calcular la determinante de otra matriz? \n1. Sí 2. No: "))
-print("*******************")
-imprimirmatriz(A)

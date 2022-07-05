@@ -11,7 +11,6 @@ while (opc == 1):
     B = [] 
     C = []    
     while True: #Llenado matrices A y B
-
         while True: #cantidad de filas y renglones
             try:
                 filasA = int(input("Numero de filas de la matriz A: "))

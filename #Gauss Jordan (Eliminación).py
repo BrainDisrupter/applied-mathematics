@@ -12,7 +12,16 @@ opc = 1
 while opc==1:
     vecsolu = [] #Vector solucion
     A = []
-    fil = int(input("Introduce el número de incógnitas: "))
+    while True:    
+        try:
+            fil = int(input("Introduce el número de incógnitas: "))
+            if (fil<1):
+                print("Introduciste una cantidad no válida de incógnitas, vuelve a introducir el dato.")
+                continue
+            break
+        except ValueError:
+            print("Introduciste un carácter inválido, vuelve a introducir el dato.")
+            continue
     col = fil+1
     for i in range(fil): #Llenado de matriz
         renglon = []
@@ -26,7 +35,6 @@ while opc==1:
                     continue
             renglon.append(num)
         A.append(renglon)
-    #for i in range(fil):
     print("\nMATRIZ INICIAL:")
     imprimirmatriz(A)
     print("************************************")
@@ -71,4 +79,4 @@ while opc==1:
     print(vecsolu)
     print("\nMATRIZ RESUELTA")
     imprimirmatriz(A)
-    opc = int(input("\n¿Deseas resolver otro sistema de ecuaciones lineales? \n1. Sí 2. No"))
+    opc = int(input("\n¿Deseas resolver otro sistema de ecuaciones lineales? \n1. Sí 2. No: "))
