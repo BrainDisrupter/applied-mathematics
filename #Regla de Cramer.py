@@ -1,6 +1,7 @@
 #Solución de S.L.E por regla de Cramer
 from decimal import DivisionByZero
 A = []
+
 def llenadomatriz(matriz):
     while True:    
         try:
@@ -8,23 +9,30 @@ def llenadomatriz(matriz):
             if (fil<1):
                 print("Introduciste una cantidad no válida de incógnitas, vuelve a introducir el dato.")
                 continue
+            col = fil+1
+            for i in range(fil): #Llenado de matriz
+                renglon = []
+                for j in range(col):
+                    while True:    
+                        try:
+                            num = float(input(f"introduce el numero dentro de la celda [{i+1}][{j+1}]: "))
+                            break
+                        except ValueError:
+                            print("Introduciste un carácter inválido, vuelve a introducir el número.")
+                            continue
+                    renglon.append(num)
+                A.append(renglon)
             break
         except ValueError:
             print("Introduciste un carácter inválido, vuelve a introducir el dato.")
             continue
-    col = fil+1
-    for i in range(fil): #Llenado de matriz
-        renglon = []
-        for j in range(col):
-            while True:    
-                try:
-                    num = float(input(f"introduce el numero dentro de la celda [{i+1}][{j+1}]: "))
-                    break
-                except ValueError:
-                    print("Introduciste un carácter inválido.\nVuelve a introducir el número.")
-                    continue
-            renglon.append(num)
-        A.append(renglon)
+    if matriz[0][0] == 0:
+        i = 1
+        while i<fil:
+            if matriz[i][0] != 0:
+                matriz[0],matriz[i] = matriz[i],matriz[0]
+                print(f"Intercambiamos renglón 1 por renglón {i+1} debido al cero inicial en el primero.")
+            break
     print("\nMatriz inicial.")
     imprimirmatriz(A)
     return matriz
@@ -66,6 +74,7 @@ def solucRegCramer(A):
         B=[]
         if i == 0:
             m = recorrido-1
+            print(f"\nDETERMINANTE A")
         for j in range(recorrido-1): #Cantidad de filas
             lista = []
             for k in range(recorrido-1): #Cantidad de renglones
@@ -75,15 +84,19 @@ def solucRegCramer(A):
                     lista.append(A[j][recorrido-1])
             B.append(lista)
         m = i
-        print(f"\nDETERMINANTE A{i+1}")
+        if i != 0:
+            print(f"\nDETERMINANTE A{i}")
         imprimirmatriz(B)
         determinantes.append(detGaussJordanEli(B))
         if (i==0):    
             print(f"\nResultado de determinante principal: {determinantes[i]}")
         else:
-            print(f"\nResultado de determinante A{i+1}: {determinantes[i]}")
+            print(f"\nResultado de determinante A{i}: {determinantes[i]}")
     for i in range(recorrido-1):
-        solucion = determinantes[i+1]/determinantes[0]
+        try:
+            solucion = determinantes[i+1]/determinantes[0]
+        except ZeroDivisionError:
+            solucion = 0
         print(f"Solución X{i+1}: ",solucion)
 
 opc = 1
