@@ -86,7 +86,7 @@ while opc == 1:
     metMontante(llenadomatriz(A))
     try:    
         opc = int(input("¿Desea volver a resolver otro sistema de ecuaciones lineales? 1. Sí 2. No: "))
-        if (opc!=1 or opc!=2):
+        if (opc<1 or opc>2):
             print("Introduciste una opción no reconocida, vuelve a elegir una opción.")
     except ValueError:
         print('Ingresaste un carácter inválido, vuelve a introducir el dato.')

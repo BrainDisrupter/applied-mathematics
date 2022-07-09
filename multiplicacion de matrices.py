@@ -19,7 +19,6 @@ while (opc == 1):
             except ValueError:
                 print("Introduciste un número no válido.")
                 continue
-
         for i in range(filasA): #Llenado de Matriz A
             lista = []
             for j in range(colA):
@@ -32,9 +31,7 @@ while (opc == 1):
                         continue
                 lista.append(valor)
             A.append(lista)
-           
         imprimirmatriz(A)
-
         while True: #cantidad de filas y renglones
             try:
                 filasB = int(input("Numero de filas de la matriz B: "))
@@ -46,7 +43,6 @@ while (opc == 1):
             except ValueError:
                 print("Introduciste un número no válido.")
                 continue
-        
         for i in range(filasB): #Llenado de Matriz B
             lista = []
             for j in range(colB):
@@ -59,13 +55,9 @@ while (opc == 1):
                         continue
                 lista.append(valor)
             B.append(lista)
-            
         imprimirmatriz(B)
-
         break #Cerramos llenado de Matrices A y B
-            
         ####################################################################
-
     for i in range(filasA): #Algoritmo matemático
         arreglo = []
         for j in range(colB): #Numero de columnas de la nueva matriz
@@ -74,11 +66,8 @@ while (opc == 1):
                 sum = sum + (A[i][k])*(B[k][j])
             arreglo.append(sum)
         C.append(arreglo)
-    
     print("***********************************\nMatriz resultado:") 
-
     imprimirmatriz(C)
- 
     try: #Validamos si el usuario desea volver a usar el programa
         opc = int(input("¿Deseas realizar otra multiplicación?\n1. Sí 2. No: "))
         if (opc > 2 or opc < 1):
