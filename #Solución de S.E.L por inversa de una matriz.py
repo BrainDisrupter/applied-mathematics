@@ -1,13 +1,13 @@
 #Solución de S.E.L por inversa de una matriz
 from decimal import DivisionByZero
-from re import A
+
 def imprimirmatriz(matriz):
     numren = len(matriz)
     numcol = len(matriz[0])
     for i in range (numren):
-        #for j in range(numcol):
-            #if (matriz[i][j] == -0.0):
-                #matriz[i][j] = 0.0
+        for j in range(numcol):
+            if (matriz[i][j] == -0.0):
+                matriz[i][j] = 0.0
         print("[",matriz[i],"]")
 
 def llenadomatriz(matriz):
@@ -48,9 +48,8 @@ def llenadomatriz(matriz):
 def matrizinversa(matriz):
     vecindep = []
     numren = len(matriz)
-    for i in range(numren):
-        vecindep.append(matriz[i][numren])
     for i in range (numren):
+        vecindep.append(matriz[i][numren])
         matriz[i].pop()
         for j in range(numren):
             if (i==j):
@@ -78,6 +77,7 @@ def matrizinversa(matriz):
                     matriz[l][k] = matriz[l][k]-(matriz[i][k]*multiplo)
         print("\nMATRIZ NUEVA")
         imprimirmatriz(matriz)
+
     Ainversa=[]
     for i in range(numren):
         renglon=[]
@@ -91,7 +91,8 @@ def matrizinversa(matriz):
         sum = 0
         for j in range(numren): #Numero de columnas de la nueva matriz
             sum = sum + (Ainversa[i][j])*(vecindep[j])
-        print(f"X1: {sum}")
+            print(f"{Ainversa[i][j]} x [{vecindep[j]}] = {sum}")
+        print(f"\nLa suma de los anteriores resultados nos da: X{i+1} = {sum}\n")
 
 opc = 1
 while opc == 1:
